@@ -1,4 +1,4 @@
 help:
 	Display commands.
 quit:
-	quit program.
+	quit Shell.
