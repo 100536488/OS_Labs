@@ -1,0 +1,4 @@
+help:
+	Display commands.
+quit:
+	quit program.

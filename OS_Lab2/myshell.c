@@ -27,6 +27,7 @@ int main(int argc, char *argv[])
     char buffer[BUFFER_LEN] = { 0 };
     char command[BUFFER_LEN] = { 0 };
     char arg[BUFFER_LEN] = { 0 };
+    char buf[1000];
 
     // Parse the commands provided using argc and argv
 
@@ -34,14 +35,26 @@ int main(int argc, char *argv[])
     while (fgets(buffer, BUFFER_LEN, stdin) != NULL)
     {
         // Perform string tokenization to get the command and argument
-
+	char *p = strtok(buffer, "\n");
+	strcpy(command, p);
         // Check the command and execute the operations for each command
         // cd command -- change the current directory
         if (strcmp(command, "cd") == 0)
         {
             // your code here
         }
+	else if (strcmp(command, "help") == 0)
+        {
+            // your code here
+		FILE *fp;
+		fp=fopen("help.txt", "r"); 
+		while (fgets(buf,1000, fp)!=NULL)
+        		printf("%s",buf);
 
+		fclose(fp);
+    		return 0;
+		
+        }
         // other commands here...
         
         // quit command -- exit the shell
